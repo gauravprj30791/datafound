@@ -1,0 +1,65 @@
+<?php
+$product = $block->getCurrentProduct();
+$productId = $product->getId();
+$productName = $product->getName();
+$productSku = $product->getSku();
+
+if (!empty($productId)) {
+?>
+<form class="form enquiry" action="<?php echo $block->escapeHtml($block->getFormAction()); ?>" 
+      id="enquiry-form" method="post"
+      data-hasrequired="<?php echo $block->escapeHtml('* Required Fields') ?>"
+      data-mage-init='{"validation":{}}'>
+    <fieldset class="fieldset">
+        <legend class="legend"><span><?php echo $block->escapeHtml('Enquiry Us') ?></span></legend><br />
+        <div class="hidden-fields">
+            <input type="hidden" name="product_id" value="<?php echo $block->escapeHtml($productId);?>" />
+            <input type="hidden" name="product_name" value="<?php echo $block->escapeHtml($productName);?>" />
+            <input type="hidden" name="product_sku" value="<?php echo $block->escapeHtml($productSku);?>" />
+        </div>
+        <div class="field first_name required">
+            <label class="label" for="first_name"><span><?php echo $block->escapeHtml('First Name') ?></span></label>
+            <div class="control">
+                <input name="first_name" id="first_name" title="<?php echo $block->escapeHtml('First Name') ?>" 
+                    class="input-text" type="text" data-validate="{required:true}"/>
+            </div>
+        </div>
+        <div class="field last_name required">
+            <label class="label" for="last_name"><span><?php echo $block->escapeHtml('Last Name') ?></span></label>
+            <div class="control">
+                <input name="last_name" id="last_name" title="<?php echo $block->escapeHtml('Last Name') ?>"
+                    class="input-text" type="text" data-validate="{required:true}"/>
+            </div>
+        </div>
+        <div class="field email required">
+            <label class="label" for="email"><span><?php echo $block->escapeHtml('Email') ?></span></label>
+            <div class="control">
+                <input name="email" id="email" title="<?php echo $block->escapeHtml('Email') ?>" class="input-text"
+                    type="email" data-validate="{required:true, 'validate-email':true}"/>
+            </div>
+        </div>
+        <div class="field telephone">
+            <label class="label" for="telephone"><span><?php echo $block->escapeHtml('Phone Number') ?></span></label>
+            <div class="control">
+                <input name="telephone" id="telephone" title="<?php echo $block->escapeHtml('Phone Number') ?>"
+                    class="input-text" type="text" />
+            </div>
+        </div>
+        <div class="field comment required">
+            <label class="label" for="comment"><span><?php echo $block->escapeHtml('Message') ?></span></label>
+            <div class="control">
+                <textarea name="comment" id="comment" title="<?php echo $block->escapeHtml('Message') ?>"
+                    class="input-text" cols="5" rows="3"></textarea>
+            </div>
+        </div>
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <input type="hidden" name="hideit" id="hideit" value="" />
+            <button type="submit" title="<?php echo $block->escapeHtml('Submit') ?>" class="action submit primary">
+                <span><?php echo $block->escapeHtml('Submit') ?></span>
+            </button>
+        </div>
+    </div>
+</form>
+<?php }?>

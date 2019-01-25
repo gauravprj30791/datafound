@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Product_Inquiry::inquiry" title="Product Inquiry" 
+module="Product_Inquiry" sortOrder="30" resource="Product_Inquiry::inquiry"/>
+        <add id="Product_Inquiry::inquiry_manage" title="All Inquiry" 
+module="Product_Inquiry" sortOrder="10" parent="Product_Inquiry::inquiry" 
+action="inquiry/index/" resource="Product_Inquiry::manage"/>
+    </menu>
+</config>
